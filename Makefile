@@ -1,5 +1,5 @@
 VPATH = tools
-objects = main.o wrapSock.o
+objects = main.o wrapSock.o rio.o
 
 server : $(objects)
 	g++ -o server $(objects)
