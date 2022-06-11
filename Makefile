@@ -1,9 +1,11 @@
-server : main.o
-	g++ -o main main.o
+VPATH = tools
+objects = main.o wrapSock.o
 
-main.o : main.cc
-	g++ -c main.cc
+server : $(objects)
+	g++ -o server $(objects)
+
+main.o wrapSock.o : tools.h
 
 
 clean : 
-	rm *.o main 
+	rm server $(objects)
