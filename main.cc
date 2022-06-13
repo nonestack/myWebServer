@@ -11,9 +11,10 @@
 #include <errno.h>
 
 #include "tools/tools.h"
+#include "http/http.h"
 
 #define BUF_SIZE 1024
-#define MAXLINE 128
+//#define MAXLINE 128
 
 //void myError(int, const char *);
 
@@ -34,6 +35,8 @@ int main(int argc, char *argv[]){
         connfd = accept(listenfd, (sockaddr *)&clientaddr, &clientlen);
         getnameinfo((const sockaddr *)&clientaddr, clientlen, hostname, MAXLINE, port, MAXLINE, 0);
         fprintf(stdout, "Accept connection from (%s : %s)\n", hostname, port);
+
+        handleRequest(connfd);
         close(connfd);
     }
     return 0;
