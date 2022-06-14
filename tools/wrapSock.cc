@@ -13,7 +13,6 @@ int openListen(char *port){
 
     for(p = listp; p != NULL; p = p->ai_next){
         int ret;
-        printf("world\n");
         listenfd = socket(p->ai_family, p->ai_socktype, p->ai_protocol);
         if(listenfd == -1)
             continue;

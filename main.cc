@@ -30,7 +30,6 @@ int main(int argc, char *argv[]){
     }
 
     listenfd = openListen(argv[1]);
-    fprintf(stdout, "Hello\n");
     while(1){
         connfd = accept(listenfd, (sockaddr *)&clientaddr, &clientlen);
         getnameinfo((const sockaddr *)&clientaddr, clientlen, hostname, MAXLINE, port, MAXLINE, 0);
